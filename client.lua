@@ -1,15 +1,14 @@
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(100)
-		speler = GetPlayerPed(-1)
-        if IsPedInAnyVehicle(speler, false) then
-			if GetIsTaskActive(speler,2) then
-				voertuig = GetVehiclePedIsUsing(speler)
-				angle = GetVehicleSteeringAngle(voertuig)
+		ped = GetPlayerPed(-1)
+        if IsPedInAnyVehicle(ped, false) then
+			if GetIsTaskActive(ped,2) then
+				vehicle = GetVehiclePedIsUsing(ped)
+				angle = GetVehicleSteeringAngle(vehicle)
 				Citizen.Wait(100)
-				SetVehicleSteeringAngle(voertuig, angle)
+				SetVehicleSteeringAngle(vehicle, angle)
 			end
-
         end
     end
 end)
